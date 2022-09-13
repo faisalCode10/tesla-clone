@@ -1,13 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
+import Fade from 'react-reveal/Fade';
 function Section({title, description,rightBtnText,leftBtnText,backgroundImg}) {
   return (
     <Wrap bgImage = {backgroundImg}>
+    <Fade bottom>
         <ItemText>
           <h1>{title}</h1>
           <p>{description}</p>
         </ItemText>
+        </Fade>
         <Buttons>
+        <Fade bottom>
         <ButtonGroup>
             <LeftButton>
                 {leftBtnText}
@@ -17,7 +21,8 @@ function Section({title, description,rightBtnText,leftBtnText,backgroundImg}) {
                   {rightBtnText} 
             </RightButton>
             }
-        </ButtonGroup>
+         </ButtonGroup>
+        </Fade>
         <DownArrow src="/images/down-arrow.svg" />
         </Buttons>
           
@@ -28,6 +33,7 @@ function Section({title, description,rightBtnText,leftBtnText,backgroundImg}) {
 export default Section
 
 const Wrap = styled.div`
+        z-index:10;
         width:100vw;
         height:100vh;
         background-image: ${props => `url("images/${props.bgImage}")`};
@@ -79,7 +85,7 @@ const RightButton = styled(LeftButton)`
 const DownArrow = styled.img`
         margin-top:20px;
         height:40px;
-        animation: animateDown infinite 1s ;
+        animation: animateDown infinite .5s ;
 
 
 `
